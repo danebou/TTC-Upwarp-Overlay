@@ -1,0 +1,41 @@
+﻿<Window x:Class="TTCUpwarpOverlay.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        AllowsTransparency="True" WindowStyle="None" Topmost="True"
+        Title="MainWindow" Height="730" Width="700">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.00" Color="White"/>
+    </Window.Background>
+    <Grid Loaded="Grid_Loaded" IsHitTestVisible="True">
+        <Image x:Name="ImageDisplay" Height="503" VerticalAlignment="Top" Stretch="Fill" IsHitTestVisible="False" Width="690" HorizontalAlignment="Left"/>
+        <Grid HorizontalAlignment="Center" Height="154" Margin="166,508,166,0" VerticalAlignment="Top" Width="368" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="89*"/>
+                <ColumnDefinition Width="203*"/>
+
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Slider x:Name="sliderXAxis" Margin="0,7,1,7" Grid.Column="1" VerticalAlignment="Center" Grid.ColumnSpan="2" Maximum="100" Value="50" ValueChanged="sliderXAxis_ValueChanged"/>
+            <Slider x:Name="sliderYAxis" Margin="0,7" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Maximum="100" Value="50" ValueChanged="sliderYAxis_ValueChanged"/>
+            <Label Content="X Axis (Fine)" HorizontalAlignment="Center" Margin="6,0,9,0" VerticalAlignment="Center" Height="26" Width="74"/>
+            <Label Content="Y Axis (Fine)" HorizontalAlignment="Center" Margin="6,0,9,0" VerticalAlignment="Center" Grid.Row="1" Height="26" Width="74"/>
+            <Label Content="X Scale" HorizontalAlignment="Center" Margin="6,0,9,0" VerticalAlignment="Center" Grid.Row="2" Height="26" Width="74"/>
+            <Label Content="Y Scale" HorizontalAlignment="Center" Margin="6,0,9,0" VerticalAlignment="Center" Grid.Row="3" Height="26" Width="74"/>
+            <Slider x:Name="sliderXScale" Margin="0,7" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Value="50" Maximum="100" ValueChanged="sliderXScale_ValueChanged"/>
+            <Slider x:Name="sliderYScale" Margin="0,8,0,7" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Maximum="100" Value="50" ValueChanged="sliderYScale_ValueChanged"/>
+            <Label Content="Transparency" Margin="0" VerticalAlignment="Center" Grid.Row="4" Height="26" HorizontalContentAlignment="Center"/>
+            <Slider x:Name="sliderTransparency" Margin="0" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4" ValueChanged="sliderTransparency_ValueChanged" Maximum="100"/>
+        </Grid>
+        <Button x:Name="buttonPrevious" Content="Previous" HorizontalAlignment="Left" Margin="10,508,0,0" VerticalAlignment="Top" Width="113" Click="buttonPrevious_Click" Height="154"/>
+        <Button x:Name="buttonNext" Content="Next" HorizontalAlignment="Left" Margin="576,508,0,0" VerticalAlignment="Top" Width="114" Click="buttonNext_Click" Height="154"/>
+        <Frame x:Name="frameDrag" Content="" Height="23" Margin="0,707,0,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" MouseDown="frameDrag_MouseDown"/>
+        <Button Content="Disable" HorizontalAlignment="Left" Margin="166,667,0,0" VerticalAlignment="Top" Width="368" Height="33" Click="Button_Click"/>
+    </Grid>
+</Window>
